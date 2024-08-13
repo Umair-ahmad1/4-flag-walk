@@ -1,0 +1,33 @@
+updated flow chart with new keys and files
+first mr robot in sound name 
+directs you to use deepsound to uncover hidden file
+inside hidden file is firstclueezy.txt
+FLAG#1
+from firstclueezy.txt
+you can find the next hint as an AES-128-EBC encrypted thing
+you can tell it is 128 from the binary
+you can tell it is AES from the first letter of all the lines in the text file
+you use the title of the notepad page (firstclueezy.txt) as the key itself
+then you decrypt in aes by using the key inputting the string at the bottom of the notepad and setting it to take from hex to raw (in ebc w/ no padding)
+make sure that when using the decryption method you set it not to hex but to utf8 as it needs to reach the minimum 16 bytes in characters for the algorithm to work
+once you have done that you will be given the html address of a website saying crossword flag 2
+FLAG #2
+this is where the flow chart gets slightly less linear and a bit more confusing.
+will break it down clue by clue on the crossword page as there are some slightly odd bits
+the 1st clue is an rc2 encrypted string holding the flag as well as some co-ordinates
+the 2nd clue states Indigo Denim (I.D.) to point you towards the direction of checking the Crossword ID  which is hidden in the HTML of the website
+the 3rd clue is an rc2 encrypted string which is encrypted with a different string of bits ( the encryption key is repeated multiple times throughout the html and is in relation to the static directory which is part of the website itself).
+This 3rd clue is a dud response, which if decrypted correctly using the wrong rc2 key (1710730744), gives you a response of try the unique ID instead. This is designed to point users towards the right direction, of using the unique crossword ID (14125352) instead.
+The 4th clue points users towards the HTML source code within which the rc2 decryption keys can be found.
+RC2 encryption was used in this part of the puzzle as it allows for variable length keys, and the numbers found in the HTML source code weren't controllable by me but instead provided by the website itself.
+the 5th clue is pointing you towards rotating using a Caesar cipher of some kind
+the 6th clue is a follow up as the FLAG #3 will give you a set of co-ordinates which if plugged into google maps will show up with the location of santa margarida or the saint Margaret. It is meant to be a hint that that is not the final solution (saying that she wasn't so holy).
+51.58419346522251, -0.4073377429285295
+this is found as the 22nd rotation of the numbers can be found via brute forcing thru rot13 brute force on cyberchef
+the location is 4 flag walk! (aka flag #4). (this comes from 18 + 5 (bit loose to be honest), the 23rd check should give the result).
+This concludes the CTF. 
+there are still some stones left to be unturned for example, the c6f0a29aafe3 infront of 18 down harder than Caesar. it is not a rotation so it may be an rc2 decrypt, but it is more of a leftover thing as I was trying to implement a legitimising hash system such as those used in other puzzles like Cicada 3301, but it was meant to be a placeholder for what that would have been. 
+(this way if someone mistypes the url and they don't see this legitimising hash they won't waste time actually trying to do the crossword).
+There was also an attempt at implementing my own encryption but the ideas I had would have required a whole extra layer after to do anything with as the crossword was now getting too saturated to be able to hold any more clues for another flag without getting lost in layers.
+The code for the encryption and decryption algorithm is attached and the idea was to use it to hide the flag itself within, the code for the program would be on a github stored in a link which would need to be found.
+The whole idea of the CTF was to make people interested in different forms of cryptography and the differences between them and then having people look at (albeit simple) raw code of an encryption method as the final step and reverse engineer the code themselves (I would only make the encryption method public not the decryption method), it would be the final step to make this project as educational as it was interesting.

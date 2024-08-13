@@ -53,8 +53,8 @@ def new_encrypt(test_string,rot,key):
         crypted_string+=new_letter
     #print(new_string)
     return crypted_string
-x=new_encrypt('pa$$w0rd',5,'smellybumhole123')
+x=new_encrypt('pa$$w0rd',5,'smellyman123')
 print(x)
 print(len(x))
 print(len('pa$$w0rd'))
-print(len('smellybumhole123'))
+print(len('smellyman123'))

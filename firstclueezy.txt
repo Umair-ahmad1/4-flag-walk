@@ -1,0 +1,6 @@
+FINAL VERSION
+Amazing job! FLAG #1
+Each next clue will have a flag attached!
+So the next clue will say flag #2 for example, etc.
+NEXT 0b10000000 : 
+1941ef895a6dc01d8251800366cb8d37e6f80b728c1dd5339c8ff2a32ae5483f851448ee4a5d0806f4b92a72432660d3
